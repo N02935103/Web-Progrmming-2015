@@ -1,0 +1,64 @@
+﻿body{
+    background-color: #568686;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
+html,
+body {
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center
+}
+
+.btn-animate {
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 12px 18px;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+}
+
+.btn-animate:hover {
+  background: #333;
+}
+
+#illusion {
+  width: 500px;
+  margin: 80px auto;
+  position: relative;
+}
+
+#illusion img {
+  text-align: center;
+}
+
+#illusion .stripes {
+  position: absolute;
+  width: 500px;
+  height: 220px;
+  background: url('http://i.imgur.com/dn7zutg.png');
+  background-size: 0.67em 1px;
+  z-index: 100;
+  top: 0;
+}
+
+#illusion .stripes.active {
+  animation: move 10s alternate infinite linear;
+}
+
+@keyframes move {
+  0% {
+    left: -300px;
+  }
+  5% {
+    left: -100px;
+  }
+  95% {
+    left: 50px;
+  }
+  100% {
+    left: 300px;
+  }
+}
