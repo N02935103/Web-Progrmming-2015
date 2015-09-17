@@ -7,12 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>Bootstrap 101 Template</title>
-
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 </head>
-
 <body>
   <div class="container">
     <h1>Hello, world!</h1>
@@ -70,13 +68,7 @@
         </div>
       </div>
     </div>
-
-
-
-
-
   </div>
-
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -93,16 +85,15 @@
       $(".progress-bar").animate({
         width: "100%"
       }, 1000);
-      
+
       var myObject = {
         hello: "world",
-        intendedWidth: $(".progress-bar").animate({width: "0%"}, 2000)
+        intendedWidth: $(".progress-bar").animate({
+          width: "0%"
+        }, 2000)
       };
-      
       setTimeout(shrink(), 5000);
     })()
-    
   </script>
 </body>
-
 </html>
