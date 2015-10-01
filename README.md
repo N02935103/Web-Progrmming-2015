@@ -1,6 +1,8 @@
 # Web-Progrmming-2015
 Files and projects for web programming class 
 
+####Fitness Helper Site: http://fitnesshelper.gear.host/
+
 #Fitness Tracker App Features List
 ##1. Calorie Counter
     1. Ability to search food brands and products to gain all nutrition facts
