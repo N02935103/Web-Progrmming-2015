@@ -10,6 +10,9 @@
         array('Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), Callories => 400),
         array('Name' => 'Dinner', 'Time' => strtotime("6pm"), Callories => 400)
         );
+        
+    $food[] = $_REQUEST;
+    
     $total = 0;
     foreach($food as $meal){
         $total += $meal['Callories'];
@@ -50,7 +53,7 @@
         </div>
         <div class="row">
             <div class="col-md-8 col-xs-10">
-                <a href="#" class="btn btn-success">
+                <a href="edit.php" class="btn btn-success">
                     <i class="glyphicon glyphicon-plus"></i> New Record
                 </a>
                 <a href="#" class="btn btn-danger">
@@ -60,24 +63,21 @@
                 <table class="table table-condensed table-striped table-bordered table-hover">
                     <thead>
                         <tr>
-                            <?php $names = $food[0]; ?>
                             <th>#</th>
-                            <?php foreach($names as $key => $n): ?>
-                            <th><?=$n?></th>
-                            <?php endforeach; ?>
+                            <th>Name</th>
+                            <th>Time</th>
+                            <th>Callories</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                        foreach($food as $key => $meal): 
-                        ?>
-                        <tr>
-                            <th scope="row"><?=$key?></th>
-                            <td><?=$meal['Name']?></td>
-                            <td><?=date("Y/m/d h:i:sa", $meal['Time'])?></td>
-                            <td><?=$meal['Callories']?></td>
-                        </tr>
-                        <?php endforeach; ?>
+                        <?php foreach($food as $i => $meal): ?>
+                <tr>
+                  <th scope="row"><?=$i?></th>
+                  <td><?=$meal['Name']?></td>
+                  <td><?=date("M d Y  h:i:sa", $meal['Time'])?></td>
+                  <td><?=$meal['Callories']?></td>
+                </tr>
+                <?php endforeach; ?>
                     </tbody>
                 </table>
 
