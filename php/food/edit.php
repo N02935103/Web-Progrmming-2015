@@ -1,7 +1,28 @@
 <?php 
-    var_dump($_GET);
-    var_dump($_POST);
-    var_dump($_REQUEST);
+    //var_dump($_GET);
+    //var_dump($_POST);
+    //var_dump($_REQUEST);
+    session_start();
+    
+    $food = $_SESSION['food'];
+    if($_POST){
+        if(isset($_GET['id'])){
+            $food[$_GET['id']] = $_POST;
+        }
+        else{
+            $food[] = $_POST;
+        }
+        $_SESSION['food'] = $food;
+        header('Location: ./');
+    }
+    
+    if(isset($_GET['id'])){
+        $meal = $food[$_GET['id']];
+    }
+    else{
+        $meal = array();
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +53,7 @@
         <div class="page-header">
             <h1>Food Intake <small>Record your daily meals</small></h1>
         </div>
-        <form class="form-horizontal" method="POST" action="./">
+        <form class="form-horizontal" method="POST" action="">
             <div id="messageAlert" class='alert' style="display: none">
                 <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -42,19 +63,19 @@
             <div class="form-group">
                 <label for="txtName" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="txtName" name="Name" placeholder="Meal's Name">
+                    <input type="text" class="form-control" id="txtName" name="Name" placeholder="Meal's Name" value="<?=$meal['Name']?>">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="txtCallories">Callories</label>
                 <div class="col-sm-10">
-                        <input type="number" class="form-control" id="txtCallories" name="Callories" placeholder="Callories in this meal">
+                        <input type="number" class="form-control" id="txtCallories" name="Callories" placeholder="Callories in this meal" value="<?=$meal['Callories']?>">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="txtDate">When did you eat?</label>
                 <div class="col-sm-10">
-                        <input type="text" class="form-control" id="txtDate" name="Time" placeholder="mm/dd/yyyy">
+                        <input type="text" class="form-control" id="txtDate" name="Time" placeholder="mm/dd/yyyy" value="<?=$meal['Time']?>">
                 </div>
             </div>
             <div class="form-group">
