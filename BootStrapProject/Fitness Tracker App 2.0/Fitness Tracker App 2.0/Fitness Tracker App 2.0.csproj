@@ -170,11 +170,14 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="ActivityTracker.aspx" />
+    <Content Include="AddActivityItemForm.aspx" />
     <Content Include="AddFoodItemForm.aspx" />
     <Content Include="CalorieTracker.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -217,6 +220,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="UpdateActivityItemForm.aspx" />
+    <Content Include="UpdateFoodItemForm.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -337,6 +342,20 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ActivityTracker.aspx.cs">
+      <DependentUpon>ActivityTracker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivityTracker.aspx.designer.cs">
+      <DependentUpon>ActivityTracker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddActivityItemForm.aspx.cs">
+      <DependentUpon>AddActivityItemForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddActivityItemForm.aspx.designer.cs">
+      <DependentUpon>AddActivityItemForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddFoodItemForm.aspx.cs">
       <DependentUpon>AddFoodItemForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -396,6 +415,20 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="UpdateActivityItemForm.aspx.cs">
+      <DependentUpon>UpdateActivityItemForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateActivityItemForm.aspx.designer.cs">
+      <DependentUpon>UpdateActivityItemForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateFoodItemForm.aspx.cs">
+      <DependentUpon>UpdateFoodItemForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateFoodItemForm.aspx.designer.cs">
+      <DependentUpon>UpdateFoodItemForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

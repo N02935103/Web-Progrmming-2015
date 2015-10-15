@@ -25,7 +25,7 @@ namespace Fitness_Tracker_App_2._0
             var totalCalories = Convert.ToInt32(calories) * Convert.ToDouble(servings);
             var time = FoodTime.Value;
 
-            intakeItems.Add(new ArrayList { foodName, time, totalCalories });
+            intakeItems.Add(new ArrayList { foodName, calories, servings, time, totalCalories });
             Session["IntakeItems"] = intakeItems;
             Response.Redirect("~/CalorieTracker");
         }

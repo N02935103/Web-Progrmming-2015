@@ -6,12 +6,12 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - Fitness Helper</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -54,6 +54,7 @@
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a runat="server" href="~/CalorieTracker">Calorie Tracker</a></li>
+                        <li><a runat="server" href="~/ActivityTracker">Activity Tracker</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -84,5 +85,13 @@
         </div>
     </form>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $(function () {
+                $("input[id='MainContent_FoodTime']").datepicker();
+                $("input[id='MainContent_ActivityTime']").datepicker();
+            });
+        })(jQuery);
+    </script>
 </body>
 </html>

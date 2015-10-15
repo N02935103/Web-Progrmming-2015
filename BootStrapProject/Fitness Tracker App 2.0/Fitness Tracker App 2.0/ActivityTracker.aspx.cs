@@ -4,25 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Fitness_Tracker_App_2._0
 {
-    public partial class CalorieTracker : System.Web.UI.Page
+    public partial class ActivityTracker : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var intakeItems = (ArrayList)Session["IntakeItems"];
+            var activityItems = (ArrayList)Session["ActivityItems"];
 
-            if (intakeItems == null)
+            if (activityItems == null)
             {
-                intakeItems = new ArrayList();
-                Session["IntakeItems"] = intakeItems;
+                activityItems = new ArrayList();
+                Session["ActivityItems"] = activityItems;
             }
-            var totalCalories = 0.00;
+            TimeSpan totalActivity = new TimeSpan();
             var count = 1;
-            foreach (var item in intakeItems)
+            foreach (var item in activityItems)
             {
                 var currentItem = item as ArrayList;
                 TableRow r = new TableRow();
@@ -53,19 +52,19 @@ namespace Fitness_Tracker_App_2._0
                 r.Cells.Add(cName);
 
                 TableCell cTime = new TableCell();
-                cTime.Text = currentItem[3].ToString();
+                cTime.Text = currentItem[4].ToString();
                 r.Cells.Add(cTime);
 
-                TableCell cCalories = new TableCell();
-                cCalories.Text = currentItem[4].ToString();
-                r.Cells.Add(cCalories);
+                TableCell cDuration = new TableCell();
+                cDuration.Text = currentItem[3].ToString();
+                r.Cells.Add(cDuration);
 
-                totalCalories += Convert.ToDouble(currentItem[4]);
+                totalActivity += (TimeSpan)currentItem[3];
 
-                CalorieTable.Rows.Add(r);
+                ActivityTable.Rows.Add(r);
             }
 
-            TotalCaloriesLabel.InnerText = "Total Calorie Intake: " + totalCalories;
+            TotalActivityLabel.InnerText = "Total Activity Duration: " + totalActivity;
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -73,10 +72,10 @@ namespace Fitness_Tracker_App_2._0
             var button = sender as Button;
             var split = button.ID.Split('|');
             var index = Convert.ToInt32(split[1]) - 1;
-            var intakeItems = (ArrayList)Session["IntakeItems"];
-            var item = intakeItems[index];
-            Session["EditFoodItem"] = item;
-            Response.Redirect("~/UpdateFoodItemForm.aspx");
+            var activityItems = (ArrayList)Session["ActivityItems"];
+            var item = activityItems[index];
+            Session["EditActivityItem"] = item;
+            Response.Redirect("~/UpdateActivityItemForm.aspx");
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -84,15 +83,15 @@ namespace Fitness_Tracker_App_2._0
             var button = sender as Button;
             var split = button.ID.Split('|');
             var index = Convert.ToInt32(split[1]) - 1;
-            var intakeItems = (ArrayList)Session["IntakeItems"];
-            intakeItems.RemoveAt(index);
-            Session["IntakeItems"] = intakeItems;
-            Response.Redirect("~/CalorieTracker.aspx");
+            var activityItems = (ArrayList)Session["ActivityItems"];
+            activityItems.RemoveAt(index);
+            Session["ActivityItems"] = activityItems;
+            Response.Redirect("~/ActivityTracker.aspx");
         }
 
-        protected void AddFoodItemButton_OnClick(object sender, EventArgs e)
+        protected void AddActivityItemButton_OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/AddFoodItemForm");
+            Response.Redirect("~/AddActivityItemForm");
         }
     }
 }
